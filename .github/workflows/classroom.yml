@@ -1,0 +1,68 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: hid 1
+      id: hid-1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: hid 1
+        setup-command: gcc main.c -o main
+        command: "./main"
+        input: '29'
+        expected-output: Counter B
+        comparison-method: exact
+        timeout: 10
+    - name: hid 2
+      id: hid-2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: hid 2
+        setup-command: gcc main.c -o main
+        command: "./main"
+        input: '0'
+        expected-output: Counter A
+        comparison-method: exact
+        timeout: 10
+    - name: hid 3
+      id: hid-3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: hid 3
+        setup-command: gcc main.c -o main
+        command: "./main"
+        input: '103'
+        expected-output: Counter B
+        comparison-method: exact
+        timeout: 10
+    - name: hid 4
+      id: hid-4
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: hid 4
+        setup-command: gcc main.c -o main
+        command: "./main"
+        input: '1000'
+        expected-output: Counter A
+        comparison-method: exact
+        timeout: 10
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        HID-1_RESULTS: "${{steps.hid-1.outputs.result}}"
+        HID-2_RESULTS: "${{steps.hid-2.outputs.result}}"
+        HID-3_RESULTS: "${{steps.hid-3.outputs.result}}"
+        HID-4_RESULTS: "${{steps.hid-4.outputs.result}}"
+      with:
+        runners: hid-1,hid-2,hid-3,hid-4
