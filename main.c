@@ -4,7 +4,10 @@ int main() {
     int n;
     scanf("%d", &n);
 
-    //Write your code here
+    if (n % 2 == 0)
+        printf("Counter A\n");
+    else
+        printf("Counter B\n");
 
     return 0;
 }
