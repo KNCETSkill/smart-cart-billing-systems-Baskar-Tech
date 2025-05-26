@@ -1,0 +1,14 @@
+{
+  "name": "C Programming Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "ms-vscode.cpptools"
+  ],
+  "postCreateCommand": "echo 'Ready for C programming!'",
+  "remoteUser": "root"
+}

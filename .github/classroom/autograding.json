@@ -1,0 +1,49 @@
+{
+  "tests": [
+    {
+      "name": "Open Test Case",
+      "setup": "gcc main.c -o main",
+      "run": "./main",
+      "input": "14",
+      "expected_output": "Counter A\n",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Hidden Case 1",
+      "setup": "gcc main.c -o main",
+      "run": "./main",
+      "input": "29",
+      "expected_output": "Counter B\n",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Hidden Case 2",
+      "setup": "gcc main.c -o main",
+      "run": "./main",
+      "input": "0",
+      "expected_output": "Counter A\n",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Hidden Case 3",
+      "setup": "gcc main.c -o main",
+      "run": "./main",
+      "input": "103",
+      "expected_output": "Counter B\n",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Hidden Case 4",
+      "setup": "gcc main.c -o main",
+      "run": "./main",
+      "input": "1000",
+      "expected_output": "Counter A\n",
+      "timeout": 5,
+      "points": 1
+    }
+  ]
+}
